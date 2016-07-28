@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.samyexpress"
+        version   = "1.0.0"> 
+
+  <name>SamyExpress Mobile</name>
+  <description>
+    Your shopping experience
+  </description>
+  
+  <author href="http://phonegap.com" email="samyexpressserv@gmail.com">
+    SamyExpress
+  </author>
+  
+  <preference name="phonegap-version" value="3.7.0"/>
+  <!--<preference name="phonegap-version" value="cli-5.2.0"/>--><!--long compiling and insallting time-->
+  
+  <!--<gap:plugin name="org.crosswalk.engine" version="1.3.0" />
+  <gap:plugin name="cordova-plugin-whitelist" source="npm" />-->
+  
+  <gap:plugin name="org.apache.cordova.splashscreen" />
+  <!--<gap:plugin name="org.apache.cordova.camera" />-->
+  <plugin name="cordova-plugin-camera" source="pgb" />
+  <plugin name="org.apache.cordova.file-transfer" spec="0.4.6" source="pgb" />
+
+  
+  
+  <access origin="*"/>
+  <allow-intent href="http://*/*"/>
+  <allow-intent href="https://*/*"/>
+  <allow-intent href="tel:*"/>
+  <allow-intent href="sms:*"/>
+  <allow-intent href="mailto:*"/>
+  <allow-intent href="geo:*"/>
+  <platform name="android">
+    <allow-intent href="market:*"/>
+  </platform>
+  <!--<platform name="ios">
+    <allow-intent href="itms:*"/>
+    <allow-intent href="itms-apps:*"/>
+  </platform>-->
+  
+  <icon src="images/logo.png"  width="57" height="57" />
+  <!--<gap:splash src="Resources/splash/Default~iphone.png"  gap:platform="ios"  width="320" height="480" />-->
+  <gap:splash src="Resources/splash/Default~android.png"  gap:platform="android" gap:density="mdpi" />
+  <!--width="470" height="320"-->
+  
+</widget>

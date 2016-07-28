@@ -1,0 +1,453 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SamyExpress</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="styles/Style.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
+
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link href="styles/myStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+
+    <!-- This is the Login Page -->
+    <div id="loginPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-theme="c" >Home</a></li>
+                    <li><a href="#" data-theme="c">My Orders</a></li>
+                    <li><a href="#" data-theme="c">Wait List</a></li>
+                    <li><a href="#" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage center">
+                <div class="content-left">
+                    <h1>Login:</h1>
+                    <div class="left">
+                        <label for="txtUserEmail" data-inline="true" data-mini="true">E-mail:</label>
+                        <input type="text" id="txtUserEmail" placeholder="E-mail Address" />
+                    </div>
+                    <a href="#" id="btnLogin" data-role="button" data-inline="true" data-icon="home">Login</a>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-position="fixed" data-theme="c">
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+
+    <!-- This is the home Page -->
+    <div id="homePage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c" class="ui-state-persist">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage center">
+                <div class="content-left">
+                    <h1>Summary:</h1>
+                    <p class="summayTitles">Welcome : <span id="lblUserEmail"></span> (<a href="#" id="btnLogout">Logout</a>)</p>
+                    <p class="summayTitles">Num Of Orders : <span id="numOfOrders"></span></p>
+                    <p class="summayTitles">On The Way : <span id="onTheWay"></span></p>
+                    <p class="summayTitles">
+                        Total Expenses : <span id="totalExpenses"></span> NIS
+                    </p>
+                    <p class="summayTitles">Opened Cases : <span id="openedCases"></span></p>
+
+                    <a href="#newOrderPage" data-role="button" data-inline="true" data-icon="plus">Add New Order</a>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-position="fixed" data-theme="c">
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+    <!---------------------------------------------------------------------->
+    <!-- This is the newOrderPage Page -->
+    <div id="newOrderPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage center">
+                <a id="btnCamera" href="#"><img id="imgPG" src="images/camera.png" width="300" class="ptop10" /></a>
+                <div class="contentPage ptop10 box ">
+                    <h1>Add a New Product</h1>
+                    <div class="left">
+                        <label for="txtProductName" data-inline="true" data-mini="true">Product Name:</label>
+                        <input type="text" id="txtProductName" placeholder="Product Name" />
+                        <label for="txtPrice">Price:</label>
+                        <input type="number" id="txtPrice" placeholder="Price" />
+                        <label for="txtOrderDate">Order Date:</label>
+                        <input type="date" id="txtOrderDate" placeholder="Order Date" />
+                        <label for="selStatus" data-inline="true" data-mini="true">Status:</label>
+                        <select id="selStatus" data-inline="true" data-native-menu="false">
+                            <option value="OnTheWay">On The Way</option>
+                            <option value="Arrived">Arrived</option>
+                            <option value="Cased">Cased</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                        <label for="txtTrackingNumber" data-inline="true" data-mini="true">Tracking Number:</label>
+                        <input type="text" id="txtTrackingNumber" placeholder="Tracking Num" />
+                        <label for="txtDaysToCase" data-inline="true" data-mini="true">Time To Case:</label>
+                        <input type="text" id="txtDaysToCase" value="45" />
+                        <label for="txtUrl" data-inline="true" data-mini="true">Url:</label>
+                        <input type="text" id="txtUrl" placeholder="Url" />
+                        <p class="center">
+                            <a href="#" id="btnSaveOrder" data-role="button" data-inline="true" data-icon="plus">Save</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+    <!---------------------------------------------------------------------->
+    <!-- This is the editOrderPage Page -->
+    <div id="editOrderPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage center">
+                <a href="#"><img id="prodImage_editPage" src="images/camera.png" width="80" class="ptop10" /></a>
+                <div class="contentPage ptop10 box ">
+                    <h1>Product Details</h1>
+                    <div id="blabla" class="left">
+                        <!--edit page controls-->
+                        <label for="txtProductName_editPage" data-inline="true" data-mini="true">Product Name:</label>
+                        <input type="text" id="txtProductName_editPage" placeholder="Product Name" />
+
+                        <label for="txtPrice_editPage">Price:</label>
+                        <input type="number" id="txtPrice_editPage" placeholder="Price" />
+
+                        <label for="txtOrderDate_editPage">Order Date:</label>
+                        <input type="text" id="txtOrderDate_editPage" placeholder="Order Date" />
+
+                        <label for="selStatus_editPage" data-inline="true" data-mini="true">Status:</label>
+                        <select id="selStatus_editPage" data-inline="true" data-native-menu="false">
+                            <option value="OnTheWay">On The Way</option>
+                            <option value="Arrived">Arrived</option>
+                            <option value="Cased">Cased</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+
+                        <label for="txtTrackingNumber_editPage" data-inline="true" data-mini="true">Tracking Number:</label>
+                        <input type="text" id="txtTrackingNumber_editPage" placeholder="Tracking Number" />
+
+                        <label for="txtDaysToCase_editPage" data-inline="true" data-mini="true">Days To Case:</label>
+                        <input type="text" id="txtDaysToCase_editPage" value="45" />
+
+                        <label for="txtUrl_editPage" data-inline="true" data-mini="true">Url:</label>
+                        <input type="text" id="txtUrl_editPage" placeholder="Url" />
+
+                        <p class="center">
+                            <a href="#" type="button" id="btnUpdateOrder" data-role="button" data-inline="true">Update</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+    <!---------------------------------------------------------------------->
+    <!-- This is the Product Details Page -->
+    <div id="productDetailsPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage center">
+                <a href="#"><img id="prodImage" src="images/camera.png" width="300" class="ptop10" /></a>
+                <div class="contentPage ptop10 box ">
+                    <h1>Product Details</h1>
+                    <div class="left">
+                        <p>
+                            <label for="lblProductName" data-inline="true" data-mini="true">Product Name:</label>
+                            <span id="lblProductName">name</span>
+                        </p>
+                        <p>
+                            <label for="lblPrice" data-inline="true" data-mini="true">Price:</label>
+                            <span id="lblPrice">price</span>
+                        </p>
+                        <p>
+                            <label for="lblOrderDate" data-inline="true" data-mini="true">Order Date:</label>
+                            <span id="lblOrderDate">order date</span>
+                        </p>
+
+                        <p>
+                            <label for="lblStatus" data-inline="true" data-mini="true">Status:</label>
+                            <span id="lblStatus">status</span>
+                        </p>
+
+                        <p>
+                            <label for="lblTrackingNumber" data-inline="true" data-mini="true">Tracking Number:</label>
+                            <span id="lblTrackingNumber">Tracking Num</span>
+                        </p>
+
+
+                        <label for="lblTrackingInfo" data-inline="true" data-mini="true">Tracking Info:</label>
+                        <div style="direction:rtl; text-align: right">
+                            <span id="lblTrackingInfo">none!</span>
+                        </div>
+
+                        <p>
+                            <label for="lblDaysToCase" data-inline="true" data-mini="true">Days To Case:</label>
+                            <span id="lblDaysToCase">-----</span>
+                        </p>
+                        <p>
+                            <label for="lblUrl" data-inline="true" data-mini="true">Url:</label>
+                            <a id="lblUrl">Url</a>
+                        </p>
+                        <p class="center">
+                            <a href="#" id="btnDeleteOrder" data-role="button" data-mini="true" data-inline="true">Delete</a> &nbsp;
+                            <a href="#" id="btnEditOrder" data-role="button" data-mini="true" data-inline="true">Edit</a>
+                            <a href="#" id="btnMarkArrived" data-role="button" data-mini="true" data-inline="true">Mark As Arrived</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+
+    <!---------------------------------------------------------------------->
+    <!-- This is the myOrders Page -->
+    <div id="myOrdersPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c" class="ui-state-persist">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage">
+                <h1>My Orders</h1>
+                <ul id="ordersListView" data-role="listview" data-inset="true">
+
+                    <!--list items will be added from JScript-->
+
+                </ul>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+    <!---------------------------------------------------------------------->
+    <!-- This is the Wait List Page -->
+    <div id="waitListPage" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c" class="ui-state-persist">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage">
+                <h1>My Orders - Wait list</h1>
+                <ul id="waitListView" data-role="listview" data-inset="true">
+
+                    <!--list items will be added from JScript-->
+
+                </ul>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+    <!-- This is the Settings Page -->
+    <div id="settingsPage" data-role="page" data-theme="a">
+        <header data-role="header" data-theme="b">
+            <a href="#homePage" data-icon="home" data-iconpos="notext"></a>
+            <h1>SamyExpress 2016 &copy;</h1>
+            <a href="#info" data-rel="dialog" data-role="button" data-icon="info" data-iconpos="notext" class="ui-btn-right"></a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#homePage" data-theme="c">Home</a></li>
+                    <li><a href="#myOrdersPage" data-theme="c">My Orders</a></li>
+                    <li><a href="#waitListPage" data-theme="c">Wait List</a></li>
+                    <li><a href="#settingsPage" data-theme="c" class="ui-state-persist">Settings</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <img id="logo" src="images/logo.png" />
+            <div class="contentPage">
+                <div class="content-left" style="margin-left: -10px; margin-top: -15px">
+                    <h1>Settings:</h1>
+                    <p>
+                        <div data-role="fieldcontain" style="margin-top: -15px">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>New Track Notification: </legend>
+                                <select id="selTrackNotification" name="selTrackNotification" data-native-menu="false" data-mini="true">
+                                    <option value="False">Off</option>
+                                    <option value="True">On</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Case Reminder:</legend>
+                                <label for="caseReminder">Case Reminder: </label>
+                                <select id="caseReminder" name="caseReminder" data-native-menu="false" data-mini="true">
+                                    <option value="10">10 Days Before</option>
+                                    <option value="5">5 Days Before</option>
+                                    <option value="1">One Last Day</option>
+                                </select>
+                            </fieldset>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Order By:</legend>
+                                <label for="orderBy">Order By:</label>
+                                <select id="orderBy" name="orderBy" data-native-menu="false" data-mini="true">
+                                    <option value="Date">Date</option>
+                                    <option value="Price">Price</option>
+                                    <option value="Name">Name</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+
+                        <a href="#" id="btnClearDatabase" data-role="button" data-inline="true" data-theme="e"
+                           data-icon="alert">Clear Database</a>
+                        <a href="#" id="btnDailyDisputeCheck" data-role="button" data-inline="true" data-theme="e">Dispute Notifications</a>
+                    </p>
+                </div>
+            </div>
+
+        </section>
+        <footer data-role="footer" data-position="fixed" data-theme="c">
+
+            <h4>Samy Express 2016 &nbsp &copy; &nbsp Maor Tanami, Shai Patael And Yanay Hollander</h4>
+        </footer>
+    </div>
+
+
+    <!-- This is the Dialog Page -->
+    <div id="info" data-role="page" data-theme="b">
+        <header data-role="header" data-theme="b">
+            <h2>About Samy Express</h2>
+        </header>
+        <section data-role="content">
+            <p>
+                This Application was built to help you
+                track after your precious orders from China,
+                We hope you enjoy, and tell your friends :)
+            </p>
+        </section>
+    </div>
+
+
+    
+    <script type="text/javascript">
+        var local = true;
+        var WebServiceURL = "SamyWS.asmx";
+        if (!local) {
+            WebServiceURL = "http://proj.ruppin.ac.il/cegroup14/prod/SamyWS.asmx";
+        }
+    </script>
+
+    <!--<script type="text/javascript" src="http://84.109.179.228:90/script.js"></script>-->
+    <script type="text/javascript" src="scripts/script.js"></script>
+
+</body>
+</html>

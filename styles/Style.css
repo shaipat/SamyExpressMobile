@@ -1,0 +1,59 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Cabin);
+
+html {
+    font-family: 'Cabin', arial, sans-serif;
+    font-size: 20px;
+    background: #3e3e3e;
+    color: #fff;
+}
+
+.contentPage {
+    padding: 0 20px 0 20px;
+    font-family: 'Cabin', arial, sans-serif;
+}
+
+.center {
+    text-align: center; 
+}
+.left {
+    text-align: left; 
+}
+.content-left {
+    text-align: left;
+    width:400px;
+    margin-left: 0px;
+    
+}
+.ptop10 {
+    padding-top: 10px;
+}
+
+.box {
+    background: #fff;
+    border: 1px #000 solid;
+}
+
+
+fieldset legend {
+    color: white;
+}
+
+div label {
+    font-weight: bold;
+}
+
+
+.camIMG {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+    border: 1px solid #3e3e3e;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.summayTitles {
+    font-size: 15px;
+}
